@@ -1,0 +1,17 @@
+# hardwareServices app domain
+type hardwareservices, domain;
+app_domain(hardwareservices)
+gpu_access(hardwareservices)
+ 
+# Use system services exposed as part of Android framework public API
+allow hardwareservices app_api_service:service_manager find;
+ 
+# Read and write /data/data subdirectory (for its app-private persistent data)
+allow hardwareservices app_data_file:dir create_dir_perms;
+allow hardwareservices app_data_file:{ file lnk_file } create_file_perms;
+ 
+# Find the CPU service interface in the Service Manager
+allow hardwareservices fancontroller_service:service_manager find;
+ 
+# Send direct binder calls to the CPU HAL service
+allow hardwareservices hal_fancontroller_default:binder call;

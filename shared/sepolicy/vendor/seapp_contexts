@@ -1,2 +1,5 @@
 # GceService app
 user=_app isPrivApp=true seinfo=default name=com.android.google.gce.gceservice domain=gceservice type=app_data_file levelFrom=all
+
+# hardwareServices
+user=_app seinfo=platform name=com.hardware domain=hardwareservices type=app_data_file levelFrom=all
